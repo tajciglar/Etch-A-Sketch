@@ -2,7 +2,7 @@ function changeGrid(){
     
     let grid = prompt("Insert a number for the  new grid (e.g.: 10 = 10x10, max is 100)");
 
-    while(isNaN(grid)) && grid >= 100{
+    while(isNaN(grid)) {
         grid = prompt("Please enter an number");
     }
     while (grid >= 100){
