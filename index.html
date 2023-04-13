@@ -11,13 +11,24 @@
         <script src="script.js" defer></script>
     </head>
     <body>
-        <div id="header">
-            <button onclick="changeGrid()">Click to add size of the grid</button>
+        <div id="side-bar">
+            <div id="pick-color">
+                <label for="color-picker">Pick a color:</label>
+                <input type="color" id="color-picker" name="color-picker">
+            </div>
+            <div id="change-grid">
+                <button onclick="changeGrid()">Click to change the grid</button>
+            </div>
+            <div id="change-color">
+                <button onclick="clearColor()">Click to clear color</button>
+            </div>
         </div>
-        <div id="container"></div>
-        <div id="footer">
-            <button onclick="clearColor()">Click to clear color</button>
+        <div id="main">
+
+            <div id="container"></div>
+            
         </div>
+        
     </body>
 </html>
     
