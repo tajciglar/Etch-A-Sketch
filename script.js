@@ -42,32 +42,40 @@ function addHover () {
     const coloredBoxes = {};
     const colorPicker = document.getElementById("color-picker");
     let selectedColor = colorPicker.value;
+    let mouseDown = false;
 
     colorPicker.addEventListener("input", (event) =>{
         selectedColor = event.target.value;
     });
 
+    // checking if mouse is clicked or not
+    document.addEventListener("mousedown", () =>{
+        mouseDown = true;
+    });
+    document.addEventListener("mouseup", () =>{
+        mouseDown = false;
+    });
+
     box.forEach((box, index) => {
         // color based on the selector
         box.addEventListener('mouseenter', () => {
-
-            if (coloredBoxes[index]) {
-                // Generate a random RGB color
-                const red = Math.floor(Math.random() * 256);
-                const green = Math.floor(Math.random() * 256);
-                const blue = Math.floor(Math.random() * 256);
-                const color = `rgb(${red}, ${green}, ${blue})`;
-        
-                // Set the box color to the random color
-                box.style.backgroundColor = color;
-              } else {
-                // Set the box color to the color that the user picked
-                box.style.backgroundColor = selectedColor;
-                coloredBoxes[index] = true;
-              }
-        });
-    
+            if(mouseDown){
+                if (coloredBoxes[index]) {
+                    // Generate a random RGB color
+                    const red = Math.floor(Math.random() * 256);
+                    const green = Math.floor(Math.random() * 256);
+                    const blue = Math.floor(Math.random() * 256);
+                    const color = `rgb(${red}, ${green}, ${blue})`;
             
+                    // Set the box color to the random color
+                    box.style.backgroundColor = color;
+                } else {
+                    // Set the box color to the color that the user picked
+                    box.style.backgroundColor = selectedColor;
+                    coloredBoxes[index] = true;
+                }
+            }
+        });               
     });
 }
 
